@@ -26,15 +26,34 @@ function gameObject() {
     return info;
 }
 
+function numPointsScored(playerName) {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let awayPlayers = object.away.players;
+    for (const key in homePlayers) {
+        if (key === playerName) {
+            return homePlayers[key]['points'];
+        }
+    for (const key in awayPlayers) {
+        if (key === playerName) {
+            return awayPlayers[key]['points'];
+        }
+    }
+    }
+};
 
-function numPointsScored(target, playerName) {
-    if (typeof target === 'object') {
-        for (const key in target) {
-            if (key === playerName) {
-                console.log(target[key]['points']);
-            } else {
-                numPointsScored(target[key], playerName);
-            }
-      }
-    } 
+function shoeSize(playerName) {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let awayPlayers = object.away.players;
+    for (const key in homePlayers) {
+        if (key === playerName) {
+            return homePlayers[key]['shoe'];
+        }
+    for (const key in awayPlayers) {
+        if (key === playerName) {
+            return awayPlayers[key]['shoe'];
+        }
+    }
+    }
 };
