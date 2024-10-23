@@ -71,3 +71,10 @@ function teamColors(teamNameInput) {
             return 'error';
     }
 };
+
+function teamNames() {
+    let object = gameObject();
+    let homeTeam = object.home.teamName;
+    let awayTeam = object.away.teamName;
+    return [homeTeam, awayTeam];
+};
