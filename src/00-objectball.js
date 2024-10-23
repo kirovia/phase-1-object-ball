@@ -25,12 +25,25 @@ let info = {
 
 function numPointsScored(target, playerName) {
     if (typeof target === 'object') {
-      for (const key in target) {
-        if (key === playerName) {
-            console.log(target[key]['points']);
-        } else {
-            numPointsScored(target[key], playerName);
-        }
+        for (const key in target) {
+            if (key === playerName) {
+                console.log(target[key]['points']);
+            } else {
+                numPointsScored(target[key], playerName);
+            }
       }
     } 
-  }
+};
+
+function shoeSize(target, playerName) {
+    if (typeof target === 'object') {
+        for (const key in target) {
+            if (key === playerName) {
+                console.log(target[key]['shoe']);
+            } else {
+                shoeSize(target[key], playerName);
+            }
+        }
+    }
+};
+
