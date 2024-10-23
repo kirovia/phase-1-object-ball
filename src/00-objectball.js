@@ -47,3 +47,15 @@ function shoeSize(target, playerName) {
     }
 };
 
+function teamColors(target, teamName) {
+    if (typeof target === 'object') {
+        for (const key in target) {
+            if (target[key] === teamName) {
+                console.log(target['colors']);
+            } else {
+                teamColors(target[key], teamName);
+            }
+        }
+    }
+};
+
