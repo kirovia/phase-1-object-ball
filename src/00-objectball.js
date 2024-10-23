@@ -78,3 +78,24 @@ function teamNames() {
     let awayTeam = object.away.teamName;
     return [homeTeam, awayTeam];
 };
+
+function playerNumbers(teamNameInput) {
+    let object = gameObject();
+    let homeTeam = object.home.teamName;
+    let homePlayers = object.home.players;
+    let awayTeam = object.away.teamName;
+    let awayPlayers = object.away.players;
+    let myArray = [];
+    if (teamNameInput === homeTeam) {
+        for (const key in homePlayers) {
+            myArray.push(homePlayers[key]['number']);
+        }
+    } else if (teamNameInput === awayTeam) {
+        for (const key in awayPlayers) {
+            myArray.push(awayPlayers[key]['number']);
+        }
+    } else {
+        return 'error';
+    }
+    return myArray;
+};
