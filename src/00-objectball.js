@@ -57,3 +57,17 @@ function shoeSize(playerName) {
     }
     }
 };
+
+function teamColors(teamNameInput) {
+    let object = gameObject();
+    switch (teamNameInput) {
+        case object.home.teamName:
+            return object.home.colors;
+            break;
+        case object.away.teamName:
+            return object.away.colors;
+            break;
+        default:
+            return 'error';
+    }
+};
