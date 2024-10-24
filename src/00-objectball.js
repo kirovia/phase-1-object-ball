@@ -165,3 +165,25 @@ function mostPointsScored() {
         }
     };
 };
+
+function winningTeam() {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let homePoints = 0;
+    let awayPlayers = object.away.players;
+    let awayPoints = 0;
+    for (const key in homePlayers) {
+        homePoints += homePlayers[key]['points'];
+    };
+    for (const key in awayPlayers) {
+        awayPoints += awayPlayers[key]['points'];
+    };
+    if (homePoints > awayPoints) {
+        return 'Brooklyn Nets'
+    } else if (awayPoints > homePoints) {
+        return 'Charlotte Hornets'
+    } else {
+        return 'error';
+    }
+};
+
