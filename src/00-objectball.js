@@ -99,3 +99,20 @@ function playerNumbers(teamNameInput) {
     }
     return myArray;
 };
+
+function playerStats(playerName) {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let awayPlayers = object.away.players;
+    for (const key in homePlayers) {
+        if (key === playerName) {
+            return homePlayers[playerName];
+        }
+    }
+    for (const key in awayPlayers) {
+        if (key === playerName) {
+            return awayPlayers[playerName];
+        }
+    }
+};
+
