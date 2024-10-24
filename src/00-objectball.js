@@ -116,3 +116,27 @@ function playerStats(playerName) {
     }
 };
 
+function bigShoeRebounds() {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let homeShoeSizes = [];
+    let awayPlayers = object.away.players;
+    let awayShoeSizes = [];
+    for (const key in homePlayers) {
+        homeShoeSizes.push(homePlayers[key]['shoe']);
+    };
+    for (const key in awayPlayers) {
+        awayShoeSizes.push(awayPlayers[key]['shoe']);
+    };
+    let biggestShoe = Math.max(...homeShoeSizes, ...awayShoeSizes);
+    for (const key in homePlayers) {
+        if (homePlayers[key]['shoe'] === biggestShoe) {
+            return homePlayers[key]['rebounds'];
+        }
+    };
+    for (const key in awayPlayers) {
+        if (awayPlayers[key]['shoe'] === biggesShoe) {
+            return awayPlayers[key]['rebounds'];
+        }
+    };
+};
