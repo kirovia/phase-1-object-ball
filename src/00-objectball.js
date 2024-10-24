@@ -135,8 +135,33 @@ function bigShoeRebounds() {
         }
     };
     for (const key in awayPlayers) {
-        if (awayPlayers[key]['shoe'] === biggesShoe) {
+        if (awayPlayers[key]['shoe'] === biggestShoe) {
             return awayPlayers[key]['rebounds'];
+        }
+    };
+};
+
+function mostPointsScored() {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let homePoints = [];
+    let awayPlayers = object.away.players;
+    let awayPoints = [];
+    for (const key in homePlayers) {
+        homePoints.push(homePlayers[key]['points']);
+    };
+    for (const key in awayPlayers) {
+        awayPoints.push(awayPlayers[key]['points']);
+    };
+    let highestScore = Math.max(...homePoints, ...awayPoints);
+    for (const key in homePlayers) {
+        if (homePlayers[key]['points'] === highestScore) {
+            return key;
+        }
+    };
+    for (const key in awayPlayers) {
+        if (awayPlayers[key]['points'] === highestScore) {
+            return key;
         }
     };
 };
