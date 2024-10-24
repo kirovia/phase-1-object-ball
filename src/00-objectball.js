@@ -211,3 +211,33 @@ function playerWithLongestName() {
     }
 };
 
+function mostSteals() {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let awayPlayers = object.away.players;
+    let totalSteals = [];
+    for (const key in homePlayers) {
+        totalSteals.push(object.home.players[key]['steals']);
+    }
+    for (const key in awayPlayers) {
+        totalSteals.push(object.away.players[key]['steals'])
+    }
+    let mostSteals = Math.max(...totalSteals);
+    for (const key in homePlayers) {
+        if (object.home.players[key]['steals'] === mostSteals) {
+            return key;
+        }
+    }
+    for (const key in awayPlayers) {
+        if (object.away.players[key]['steals'] === mostSteals) {
+            return key;
+        }
+    }
+};
+
+function doesLongNameStealATon() {
+    let object = gameObject();
+    let playerLongestName = playerWithLongestName();
+    let playerMostSteals = mostSteals();
+    return playerMostSteals === playerLongestName ? true : false;
+};
