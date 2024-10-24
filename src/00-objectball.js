@@ -187,3 +187,27 @@ function winningTeam() {
     }
 };
 
+function playerWithLongestName() {
+    let object = gameObject();
+    let homePlayers = object.home.players;
+    let awayPlayers = object.away.players;
+    let lengths = [];
+    for (const key in homePlayers) {
+        lengths.push(key.length);
+    }
+    for (const key in awayPlayers) {
+        lengths.push(key.length)
+    }
+    let longestName = Math.max(...lengths);
+    for (const key in homePlayers) {
+        if (key.length === longestName) {
+            return key
+        }
+    }
+    for (const key in awayPlayers) {
+        if (key.length === longestName) {
+            return key;
+        }
+    }
+};
+
